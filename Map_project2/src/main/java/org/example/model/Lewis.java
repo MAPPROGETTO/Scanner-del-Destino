@@ -66,16 +66,17 @@ public class Lewis extends Personaggio {
             case "nord":
             case "n":
                 if (stanzaCorrente != null && stanzaCorrente.canGoNorth()) {
-                    System.out.println("Muovendo " + posizione.getX() + "..."+ posizione.getY());
+                    System.out.println("Muovendo nord da posizione: x=" + posizione.getX() + ", y=" + posizione.getY());
                     nuovaPos.muoviNord();
                 } else {
-                    System.out.println("Muovendo " + posizione.getX() + "..."+ posizione.getY());
+                    System.out.println("Bloccato a nord da posizione: x=" + posizione.getX() + ", y=" + posizione.getY());
                     return "Non puoi andare a nord!";
                 }
                 break;
             case "sud":
             case "s":
                 if (stanzaCorrente != null && stanzaCorrente.canGoSouth()) {
+                    System.out.println("Muovendo sud da posizione: x=" + posizione.getX() + ", y=" + posizione.getY());
                     nuovaPos.muoviSud();
                 } else {
                     return "Non puoi andare a sud!";
@@ -84,6 +85,7 @@ public class Lewis extends Personaggio {
             case "est":
             case "e":
                 if (stanzaCorrente != null && stanzaCorrente.canGoEast()) {
+                    System.out.println("Muovendo est da posizione: x=" + posizione.getX() + ", y=" + posizione.getY());
                     nuovaPos.muoviEst();
                 } else {
                     return "Non puoi andare a est!";
@@ -92,6 +94,7 @@ public class Lewis extends Personaggio {
             case "ovest":
             case "o":
                 if (stanzaCorrente != null && stanzaCorrente.canGoWest()) {
+                    System.out.println("Muovendo ovest da posizione: x=" + posizione.getX() + ", y=" + posizione.getY());
                     nuovaPos.muoviOvest();
                 } else {
                     return "Non puoi andare a ovest!";
@@ -101,10 +104,17 @@ public class Lewis extends Personaggio {
                 return "Direzione non valida: " + direzione;
         }
 
+        //Log di debug per nuova posizione e verifica validità
+        System.out.println("Tentativo di andare a: " + direzione);
+        System.out.println("Nuova posizione: x=" + nuovaPos.getX() + ", y=" + nuovaPos.getY());
+        System.out.println("Controllo validità...");
+
         if (mappa.isValida(nuovaPos)) {
+            System.out.println("Posizione valida. Spostamento eseguito.");
             posizione = nuovaPos;
             return "Sei andato a " + direzione;
         } else {
+            System.out.println("Posizione NON valida. Spostamento annullato.");
             return "Non puoi andare in quella direzione!";
         }
     }

@@ -21,18 +21,25 @@ public class  Mappa {
         stanze[5][2] = new Stanza("Scale", true, false, false, true,true,false,true,false);
 
         // Secondo piano (DA RIVEDERE)
-        stanze[3][8] = new Stanza("Stanza Matrimoniale", true, false, true, false, false, false, false, true);
+        stanze[3][9] = new Stanza("Stanza Matrimoniale", true, false, true, false, false, false, false, true);
         stanze[0][1] = new Stanza("Balcone", true, false, false, true, false, true, false, false);
-        stanze[1][1] = new Stanza("Stanza dei Bambini", true, false, false, false, true, false, true, false);
-        stanze[0][8] = new Stanza("Stanza degli ospiti", true, false, false, false, false, false, false, true);
-        stanze[6][5] = new Stanza("Corridoio", true, false, false, false, true, true, true, true);
+        stanze[3][1] = new Stanza("Stanza dei Bambini", true, false, false, false, true, false, true, false);
+        stanze[0][9] = new Stanza("Stanza degli ospiti", true, false, false, false, false, false, false, true);
+        stanze[6][5] = new Stanza("Corridoio", true, false, false, false, true, true, false, false);
+        stanze[3][5] = new Stanza("Corridoio", true, false, false, false, true, true, true, true);
+        stanze[0][5] = new Stanza("Corridoio", true, false, false, false, false, true, true, false);
     }
 
     public boolean isValida(Posizione p) {
         int x = p.getX();
         int y = p.getY();
-        return y >= 0 && y < stanze.length && x >= 0 && x < stanze[0].length && stanze[y][x] != null;
-    }
+        boolean dentroMappa = y >= 0 && y < stanze.length && x >= 0 && x < stanze[0].length;
+        boolean esisteStanza = dentroMappa && stanze[y][x] != null;
+
+        System.out.println("Verifica posizione valida -> x=" + x + ", y=" + y +
+                " | dentroMappa: " + dentroMappa + ", esisteStanza: " + esisteStanza);
+
+        return esisteStanza;    }
 
     public Stanza getStanza(Posizione posizione) {
         return stanze[posizione.getY()][posizione.getX()];
