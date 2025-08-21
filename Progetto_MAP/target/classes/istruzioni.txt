@@ -1,0 +1,24 @@
+══════════════  ISTRUZIONI  ══════════════
+
+COMANDI DI MOVIMENTO
+  nord / n   |  sud / s   |  est / e   |  ovest / o
+
+AZIONI PRINCIPALI
+  prendi <oggetto>        - raccoglie un oggetto nella stanza
+  lascia <oggetto>        - rimuove un oggetto dall'inventario
+  usa <oggetto>           - usa un oggetto (es: torcia, chiave_matrimoniale)
+  leggi <oggetto>         - legge un oggetto (es: leggi documento)
+  inserisci <codice>      - inserisce un codice su tastierino (es: 4913)
+
+SALVATAGGIO E MENU
+  salva                    - salva sul primo slot libero
+  salva slot1|slot2|slot3  - salva su uno slot specifico (sovrascrive)
+  esci                     - torna al menu principale
+
+SUGGERIMENTI
+  - Se la stanza è buia, usa la torcia.
+  - Se una porta è chiusa, prova a usare la chiave_matrimoniale.
+  - Se hai il documento, 'leggi documento' per scoprire un codice.
+  - Raccogli tutti i pezzi per sbloccare la stanza segreta.
+
+══════════════════════════════════════════
