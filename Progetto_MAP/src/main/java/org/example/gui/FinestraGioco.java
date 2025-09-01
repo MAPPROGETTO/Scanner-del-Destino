@@ -20,6 +20,8 @@ import org.example.story.StoryEngine;
 import org.example.story.SceneManager;
 import org.example.utils.GameStateMapper;
 import org.example.utils.GestoreInputGUI;
+import org.example.utils.GestoreInput;
+
 import org.example.inventario.Inventario;
 
 public class FinestraGioco extends JFrame implements Serializable {
@@ -42,6 +44,7 @@ public class FinestraGioco extends JFrame implements Serializable {
     private AnimatedPanel backgroundPanel;
     private MappaPanel mappaPanel;
     private GestoreInputGUI inputGest;
+    private GestoreInput gestoreInput;
     private JScrollPane scrollPane;
     private JPanel bottomCombinedPanel;
     private JPanel topPanel;
@@ -92,6 +95,8 @@ public class FinestraGioco extends JFrame implements Serializable {
 
         inputGest = new GestoreInputGUI();
 
+
+
         initComponents();         // costruisci UI
         setupEventHandlers();     // bind eventi
 
@@ -130,6 +135,7 @@ public class FinestraGioco extends JFrame implements Serializable {
 
 
         lewis.setMappaPanel(mappaPanel);
+        gestoreInput = new GestoreInput(lewis);
 
         mostraProssimaScena();
     }
@@ -404,6 +410,7 @@ public class FinestraGioco extends JFrame implements Serializable {
 
     private void processInput() {
         String input = inputField.getText().trim();
+        gestoreInput = new GestoreInput(this.lewis);
         if (input.isEmpty()) return;
         inputField.setText("");
         String risposta;
@@ -412,9 +419,9 @@ public class FinestraGioco extends JFrame implements Serializable {
             String oggetto = input.substring(4).trim();
             risposta = lewis.usaOggetto(oggetto);
         } else if (input.matches("(?i)(nord|sud|est|ovest|n|s|e|o)")) {
-            risposta = lewis.muoviEsploratore(input.toLowerCase());
+            risposta = gestoreInput.muoviEsploratore(input.toLowerCase());
         } else {
-            risposta = lewis.interpretaComandoDaGUI(input);
+            risposta = gestoreInput.interpretaComandoDaGUI(input);
         }
 
         if (input.toLowerCase().startsWith("inserisci")) {
@@ -660,7 +667,7 @@ public class FinestraGioco extends JFrame implements Serializable {
             // Se l’utente aveva provato a muoversi verso la porta, ripeti il movimento
             String dir = lewis.getUltimaDirezioneTentata();
             if (dir != null) {
-                String risposta = lewis.muoviEsploratore(dir);
+                String risposta = gestoreInput.muoviEsploratore(dir);
                 appendOutput(risposta);
             } else {
                 appendOutput("> Codice corretto. La porta della stanza segreta si apre.");
