@@ -94,10 +94,10 @@ public class GestoreInput implements InterfacciaInputUtente, Serializable {
             ultimaDirezioneTentata = direzione.toLowerCase();
             return "> La porta è chiusa. Usa una chiave per aprirla.";
         }
-        posizione = nuovaPos; // Peché ??
+        posizione = nuovaPos;
         int posx = posizione.getX();
         int posy = posizione.getY();
-        lewis.setPosizione(posx, posy);
+        lewis.setPosizione(posx, posy); // aggiorna la posizione di Lewis
         System.out.println("DEBUG 1: Nuova posizione --> " + posx + "," + posy);
         ultimaDirezioneTentata = null;
         return lewis.entraInStanza(stanzaDestinazione);
@@ -113,7 +113,7 @@ public class GestoreInput implements InterfacciaInputUtente, Serializable {
         String verbo = parole[0];
         String oggetto = parole.length > 1 ? comando.substring(verbo.length()).trim() : "";
         Posizione posizione = lewis.getPosizione();
-        Stanza stanza = mappa.getStanza(posizione); // LA POSIZIONE NON è AGGIORNATA !!!
+        Stanza stanza = mappa.getStanza(posizione);
         int posx = posizione.getX();
         int posy = posizione.getY();
         System.out.println("DEBUG 2: Nuova posizione --> " + posx + "," + posy);
@@ -345,10 +345,6 @@ public class GestoreInput implements InterfacciaInputUtente, Serializable {
     private boolean isScala(String oggetto) {
         return oggetto.equals("scale") || oggetto.equals("le scale") || oggetto.contains("scala");
     }
-
-
-//    public int getPosizioneX() { return posizione.getX(); }
-//    public int getPosizioneY() { return posizione.getY(); }
 
 
     @Override
