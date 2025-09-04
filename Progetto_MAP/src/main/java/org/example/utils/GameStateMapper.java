@@ -7,6 +7,7 @@ import org.example.model.Lewis;
 import org.example.inventario.Inventario;
 import org.example.mappa.Mappa;
 import org.example.story.StoryEngine;
+import org.example.utils.GestoreInput;
 
 import java.util.*;
 
@@ -17,6 +18,8 @@ public final class GameStateMapper {
     // --------- SALVATAGGIO ---------
     public static StatoGioco buildFrom(Lewis lewis, Inventario inventario, Mappa mappa, StoryEngine storyEngine) {
         StatoGioco s = new StatoGioco();
+        GestoreInput gestoreInput = new GestoreInput(lewis);
+
         s.setPlayerX(lewis.getPosizioneX());
         s.setPlayerY(lewis.getPosizioneY());
         s.setCurrentFloor(lewis.getCurrentFloor());

@@ -66,9 +66,12 @@ public class Stanza implements Serializable{
     public List<String> getAliasOggetto() { return aliasOggetto; }
 
     public boolean oggettoMatches(String input) {
-        if (oggetto == null) return false;
-        if (oggetto.equalsIgnoreCase(input)) return true;
-        if (aliasOggetto == null) return false;
+        if (oggetto == null)
+            return false;
+        if (oggetto.equalsIgnoreCase(input))
+            return true;
+        if (aliasOggetto == null)
+            return false;
         return aliasOggetto.stream().anyMatch(a -> a.equalsIgnoreCase(input));
     }
 
