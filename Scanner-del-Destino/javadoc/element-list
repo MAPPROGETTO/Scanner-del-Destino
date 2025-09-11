@@ -1,0 +1,11 @@
+org.example.database
+org.example.database.dao
+org.example.database.migration
+org.example.database.seed
+org.example.engine
+org.example.gui
+org.example.inventario
+org.example.mappa
+org.example.model
+org.example.story
+org.example.utils
