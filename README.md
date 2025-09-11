@@ -13,7 +13,9 @@ Il giocatore veste i panni di Lewis, un giovane inventore che cerca di ritrovare
 
   - uso di lambda expression,
 
-  - utilizzo di thread per eventi asincroni,(eventuale uso di JDBC e socket, se implementato).
+  - utilizzo di thread per eventi asincroni
+    
+  - uso di JDBC.
 
 * Offrire un codice modulare, documentato e corredato di diagramma UML e specifica algebrica.
 ### 🚀 Avvio del gioco
