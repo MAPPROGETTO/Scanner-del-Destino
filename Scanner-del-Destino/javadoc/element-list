@@ -3,7 +3,7 @@ org.example.database.dao
 org.example.database.migration
 org.example.database.seed
 org.example.engine
-org.example.gui
+org.example.engine.gui
 org.example.inventario
 org.example.mappa
 org.example.model

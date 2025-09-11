@@ -1,11 +1,11 @@
-package org.example.gui;
+package org.example.engine.gui;
 
 import org.example.inventario.Inventario;
 
 import javax.swing.*;
 import java.awt.*;
 import java.io.*;
-import java.util.List;
+
 /**
  * Pannello per visualizzare l'inventario del giocatore.
  */

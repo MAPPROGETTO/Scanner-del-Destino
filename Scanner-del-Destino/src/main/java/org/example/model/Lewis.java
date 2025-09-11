@@ -4,14 +4,12 @@
  */
 package org.example.model;
 
-import org.example.gui.MappaPanel;
+import org.example.engine.gui.MappaPanel;
 import org.example.inventario.Inventario;
 import org.example.mappa.*;
 import org.example.story.*;
 import org.example.utils.*;
 
-import javax.swing.*;
-import java.awt.*;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;

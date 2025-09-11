@@ -1,8 +1,8 @@
 package org.example.utils;
 
-import org.example.gui.FinestraGioco;
-import org.example.gui.InventarioPanel;
-import org.example.gui.MappaPanel;
+import org.example.engine.gui.FinestraGioco;
+import org.example.engine.gui.InventarioPanel;
+import org.example.engine.gui.MappaPanel;
 import org.example.inventario.Inventario;
 import org.example.mappa.Mappa;
 import org.example.mappa.Posizione;
@@ -17,10 +17,8 @@ import org.example.story.StoryEngine;
 import javax.swing.*;
 import java.awt.*;
 import java.io.Serializable;
-import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
-import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -236,7 +234,7 @@ public class GestoreInput implements Serializable {
 
             case "esci": case "exit": {
                 Window w = SwingUtilities.getWindowAncestor(mappaPanel);
-                if (w instanceof org.example.gui.FinestraGioco fg) {
+                if (w instanceof org.example.engine.gui.FinestraGioco fg) {
                     fg.returnToMenu();
                     return "> Torni al menu principale.";
                 }
@@ -262,7 +260,7 @@ public class GestoreInput implements Serializable {
                 if (slotDaUsare == null) {
                     Window w = SwingUtilities.getWindowAncestor(mappaPanel);
                     Integer slotCorrente = null;
-                    if (w instanceof org.example.gui.FinestraGioco fg) {
+                    if (w instanceof org.example.engine.gui.FinestraGioco fg) {
                         slotCorrente = fg.getSlotCaricatoCorrente();
                     }
                     slotDaUsare = org.example.utils.SaveHelper.promptForSaveSlot(w, slotCorrente);
@@ -281,7 +279,7 @@ public class GestoreInput implements Serializable {
                 boolean ok = org.example.utils.GameSaver.salvaPartita(stato, slotDaUsare);
                 if (ok) {
                     Window w = SwingUtilities.getWindowAncestor(mappaPanel);
-                    if (w instanceof org.example.gui.FinestraGioco fg) fg.setSlotCaricatoCorrente(slotDaUsare);
+                    if (w instanceof org.example.engine.gui.FinestraGioco fg) fg.setSlotCaricatoCorrente(slotDaUsare);
                     return "> Partita salvata nello slot " + slotDaUsare + ".";
                 } else {
                     return "> Errore durante il salvataggio.";

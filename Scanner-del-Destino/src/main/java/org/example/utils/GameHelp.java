@@ -1,6 +1,6 @@
 package org.example.utils;
 
-import org.example.gui.FinestraLettura;
+import org.example.engine.gui.FinestraLettura;
 
 import javax.swing.*;
 import java.awt.*;

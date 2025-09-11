@@ -1,10 +1,9 @@
-package org.example.gui;
+package org.example.engine.gui;
 
 import org.example.inventario.Inventario;
 
 import javax.swing.*;
 import javax.swing.border.Border;
-import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;

@@ -36,15 +36,12 @@ public class GameSaver implements Serializable{
             System.err.println("> Errore: stato di gioco nullo, impossibile salvare.");
             return false;
         }
-
         int slot = slotForzato > 0 ? slotForzato : getPrimoSlotDisponibile(true);
-
         if (slot == -1) {
             int scelta = JOptionPane.showConfirmDialog(null,
                     "Tutti gli slot sono pieni. Vuoi sovrascrivere lo slot 1?",
                     "Slot pieni",
                     JOptionPane.YES_NO_OPTION);
-
             if (scelta == JOptionPane.YES_OPTION) {
                 slot = 1;
             } else {
@@ -52,9 +49,7 @@ public class GameSaver implements Serializable{
                 return false;
             }
         }
-
         String nomeFile = CARTELLA_SALVATAGGIO + "slot" + slot + ".dat";
-
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(nomeFile))) {
             oos.writeObject(stato);
             System.out.println("> Partita salvata su: " + nomeFile);

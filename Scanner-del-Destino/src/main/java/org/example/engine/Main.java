@@ -1,7 +1,7 @@
 package org.example.engine;
 
 import org.example.database.DatabaseBootstrap;
-import org.example.gui.GameMenuScreen;
+import org.example.engine.gui.GameMenuScreen;
 
 import javax.swing.*;
 

@@ -12,7 +12,6 @@ import java.sql.SQLException;
  */
 public final class CreazioneDatabase {
     private CreazioneDatabase() {}
-
     /**
      * Crea le tabelle del database se non esistono già.
      * Le tabelle create sono: oggetti, scene, stanza_testi.
@@ -20,7 +19,6 @@ public final class CreazioneDatabase {
      */
     public static void creaTabelle() throws SQLException {
         try (Connection c = DatabaseManager.getConnection(); Statement st = c.createStatement()) {
-
             // -------- OGGETTI --------
             st.execute("""
                 CREATE TABLE IF NOT EXISTS oggetti (
@@ -32,7 +30,6 @@ public final class CreazioneDatabase {
                   usabile BOOLEAN NOT NULL DEFAULT FALSE
                 )
             """);
-
             // -------- SCENE --------
             st.execute("""
                 CREATE TABLE IF NOT EXISTS scene (
@@ -43,7 +40,6 @@ public final class CreazioneDatabase {
                   testo CLOB NOT NULL
                 )
             """);
-
             // Indici
             st.execute("CREATE INDEX IF NOT EXISTS idx_scene_stanza_tipo ON scene(stanza, tipo)");
             st.execute("CREATE INDEX IF NOT EXISTS idx_scene_titolo ON scene(titolo)");
@@ -59,14 +55,12 @@ public final class CreazioneDatabase {
                     AND d.id < s.id
                 )
             """);
-
             // Vincolo UNIQUE sulla tripla (stanza,tipo,titolo) per evitare doppi
             st.execute("""
                 ALTER TABLE scene
                 ADD CONSTRAINT IF NOT EXISTS ux_scene_tripla
                 UNIQUE(stanza, tipo, titolo)
             """);
-
             // -------- STANZA_TESTI --------
             st.execute("""
                 CREATE TABLE IF NOT EXISTS stanza_testi (

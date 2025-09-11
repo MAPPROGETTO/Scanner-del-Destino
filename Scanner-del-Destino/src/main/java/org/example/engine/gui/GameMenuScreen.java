@@ -1,4 +1,4 @@
-package org.example.gui;
+package org.example.engine.gui;
 
 import org.example.model.StatoGioco;
 import org.example.utils.GameSaver;

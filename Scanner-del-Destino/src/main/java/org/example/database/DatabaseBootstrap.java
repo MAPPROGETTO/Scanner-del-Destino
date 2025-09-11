@@ -11,7 +11,6 @@ import org.example.database.seed.InizializzaTabelle;
 public final class DatabaseBootstrap {
     private static volatile boolean done = false;
     private DatabaseBootstrap() {}
-
     /**
      * Assicura che il database sia inizializzato.
      * Crea le tabelle se non esistono e popola i dati iniziali se la tabella 'scene' è vuota.
@@ -35,7 +34,6 @@ public final class DatabaseBootstrap {
             throw new RuntimeException("Impossibile inizializzare il DB", e);
         }
     }
-
     /**
      * Controlla se una tabella è vuota.
      * @param table Nome della tabella da controllare
